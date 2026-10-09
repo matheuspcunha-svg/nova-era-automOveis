@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Clientes | Nova Era Motors</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0b0b;
+            color: #f5f5f5;
+        }
+
+        header {
+            background: #111;
+            border-bottom: 2px solid #c9a45c;
+            padding: 20px 6%;
+        }
+
+        header h1 {
+            color: #c9a45c;
+            margin: 0 0 12px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #c9a45c;
+        }
+
+        main {
+            width: min(1100px, 92%);
+            margin: 35px auto;
+        }
+
+        h2 {
+            color: #c9a45c;
+        }
+
+        .aviso {
+            padding: 12px;
+            background: #242424;
+            border-left: 3px solid #c9a45c;
+            border-radius: 4px;
+        }
+
+        .tabela-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #151515;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #383838;
+        }
+
+        th {
+            color: #c9a45c;
+        }
+
+        footer {
+            text-align: center;
+            color: #aaa;
+            padding: 25px;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Nova Era Motors</h1>
+
+    <nav aria-label="Navegação principal">
+        <a href="{{ url_for('inicio') }}">Início</a>
+        <a href="{{ url_for('consultar_clientes') }}">Clientes</a>
+        <a href="{{ url_for('formulario') }}">Fale conosco</a>
+    </nav>
+</header>
+
+<main>
+    <h2>Clientes cadastrados</h2>
+
+    <p>Consulte os clientes salvos no banco de dados.</p>
+
+    {% if erro %}
+
+        <p class="aviso">{{ erro }}</p>
+
+    {% elif clientes %}
+
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Endereço</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.id_cliente }}</td>
+                        <td>{{ cliente.nome }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.telefone or '-' }}</td>
+                        <td>{{ cliente.email }}</td>
+                        <td>{{ cliente.endereco or '-' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+
+        <p class="aviso">
+            Ainda não há clientes cadastrados.
+        </p>
+
+    {% endif %}
+</main>
+
+<footer>
+    © 2026 Nova Era Motors
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0b">
+
+    <meta name="description"
+          content="Cadastro de clientes da Nova Era Automóveis.">
+
+    <title>Nova Era Automóveis | Cadastro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+
+            <a href="{{ url_for('inicio') }}" class="marca">
+                <span class="marca-simbolo">NE</span>
+
+                <span class="marca-texto">
+                    <strong>NOVA ERA</strong>
+                    <small>AUTOMÓVEIS</small>
+                </span>
+            </a>
+
+            <nav class="navegacao" aria-label="Menu principal">
+                <a href="{{ url_for('inicio') }}">Início</a>
+                <a href="{{ url_for('cadastrar_aluno') }}">Cadastro</a>
+                <a href="{{ url_for('consultar_alunos') }}">Consultar</a>
+            </nav>
+
+            <a href="{{ url_for('consultar_alunos') }}"
+               class="botao botao-pequeno">
+                Consultar registros
+            </a>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- DESTAQUE -->
+        <section class="hero hero-consulta">
+            <div class="container hero-conteudo">
+
+                <span class="etiqueta">NOVO REGISTRO</span>
+
+                <h1>
+                    Faça seu<br>
+                    <span>cadastro.</span>
+                </h1>
+
+                <p>
+                    Preencha seus dados para registrar as informações
+                    em nosso sistema.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section class="secao">
+            <div class="container cadastro-grade">
+
+                <div class="cadastro-introducao">
+                    <span class="etiqueta">NOVA ERA AUTOMÓVEIS</span>
+
+                    <h2>Seus dados,<br>
+                        <span class="destaque">com organização.</span>
+                    </h2>
+
+                    <p>
+                        Informe seus dados corretamente. Os campos marcados
+                        com asterisco são obrigatórios.
+                    </p>
+
+                    <div class="cadastro-beneficio">
+                        <span class="cadastro-icone">01</span>
+                        <div>
+                            <strong>Preenchimento simples</strong>
+                            <p>Informe seu nome e e-mail.</p>
+                        </div>
+                    </div>
+
+                    <div class="cadastro-beneficio">
+                        <span class="cadastro-icone">02</span>
+                        <div>
+                            <strong>Registro organizado</strong>
+                            <p>Os dados serão enviados ao sistema.</p>
+                        </div>
+                    </div>
+
+                    <div class="cadastro-beneficio">
+                        <span class="cadastro-icone">03</span>
+                        <div>
+                            <strong>Confira antes de enviar</strong>
+                            <p>Verifique se as informações estão corretas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cadastro-painel">
+
+                    <div class="cadastro-painel-titulo">
+                        <span class="etiqueta">FORMULÁRIO</span>
+                        <h2>Cadastrar aluno</h2>
+                        <p>Preencha os campos abaixo.</p>
+                    </div>
+
+                    {% if erro %}
+                    <div class="aviso aviso-erro" role="alert">
+                        <strong>{{ erro }}</strong>
+                    </div>
+                    {% endif %}
+
+                    <form
+                        action="{{ url_for('cadastrar_aluno') }}"
+                        method="POST"
+                        class="formulario">
+
+                        <div class="campo">
+                            <label for="nome">
+                                Nome completo <span class="obrigatorio">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                maxlength="100"
+                                autocomplete="name"
+                                placeholder="Digite seu nome completo"
+                                value="{{ dados.get('nome', '') }}"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">
+                                E-mail <span class="obrigatorio">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                maxlength="120"
+                                autocomplete="email"
+                                placeholder="exemplo@email.com"
+                                value="{{ dados.get('email', '') }}"
+                                required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone</label>
+
+                            <input
+                                type="tel"
+                                id="telefone"
+                                name="telefone"
+                                maxlength="20"
+                                autocomplete="tel"
+                                placeholder="(11) 99999-9999"
+                                value="{{ dados.get('telefone', '') }}">
+                        </div>
+
+                        <p class="cadastro-observacao">
+                            <span class="obrigatorio">*</span>
+                            Campos obrigatórios.
+                        </p>
+
+                        <button type="submit" class="botao botao-largo">
+                            Cadastrar aluno <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <a href="{{ url_for('inicio') }}"
+                           class="cadastro-voltar">
+                            ← Voltar à página inicial
+                        </a>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="container rodape-final">
+            <p>&copy; 2026 Nova Era Automóveis. Todos os direitos reservados.</p>
+
+            <a href="{{ url_for('inicio') }}" class="voltar-topo">
+                Página inicial ↑
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

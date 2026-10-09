@@ -1,0 +1,768 @@
+/* =========================
+   CONFIGURAÇÃO GERAL
+========================= */
+:root {
+    --preto: #0b0b0b;
+    --preto-suave: #111111;
+    --cinza-escuro: #191919;
+    --branco: #f7f7f7;
+    --dourado: #d4af37;
+    --dourado-claro: #f5d76e;
+    --borda: rgba(212, 175, 55, 0.35);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--preto);
+    color: var(--branco);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+header,
+.cabecalho {
+    background: #000;
+    color: var(--dourado);
+    padding: 22px 5%;
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-conteudo {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: var(--branco);
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.marca-simbolo {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--dourado);
+    border-radius: 8px;
+    color: var(--dourado);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.marca-texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+
+.marca-texto strong {
+    color: var(--branco);
+    letter-spacing: 1px;
+}
+
+.marca-texto span {
+    color: var(--dourado);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   MENU
+========================= */
+nav,
+.navegacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 12px;
+}
+
+nav a,
+.navegacao a {
+    color: var(--dourado);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+.navegacao a:hover {
+    color: var(--branco);
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+main {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: 35px 20px;
+}
+
+section {
+    background: var(--cinza-escuro);
+    padding: 35px 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    scroll-margin-top: 25px;
+}
+
+h2,
+h3 {
+    color: var(--dourado);
+    margin-bottom: 18px;
+    line-height: 1.3;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+.container {
+    width: min(1200px, 100%);
+    margin-inline: auto;
+}
+
+/* =========================
+   DESTAQUE / HERO
+========================= */
+.hero {
+    padding: 65px 25px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(212, 175, 55, 0.12),
+            transparent 40%
+        ),
+        var(--preto-suave);
+    border-bottom: 1px solid var(--borda);
+}
+
+.hero-conteudo {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 700px;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.etiqueta {
+    display: inline-block;
+    color: var(--dourado);
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+    padding: 6px 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.destaque {
+    color: var(--dourado);
+}
+
+/* =========================
+   CARTÕES DOS CARROS
+========================= */
+.carros {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(260px, 100%), 1fr)
+    );
+    gap: 25px;
+    margin-top: 25px;
+    align-items: stretch;
+}
+
+.carros article {
+    display: flex;
+    flex-direction: column;
+    background: #080808;
+    padding: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 0;
+}
+
+.carros article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--dourado);
+}
+
+.carros img {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.carros article p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.preco {
+    color: var(--dourado);
+    font-size: 22px !important;
+    font-weight: bold;
+    margin-top: auto;
+    padding-top: 12px;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+.botao,
+button {
+    display: inline-block;
+    background: var(--dourado);
+    color: #000;
+    padding: 12px 22px;
+    margin-top: 12px;
+    border: 1px solid var(--dourado);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.botao:hover,
+button:hover {
+    background: var(--dourado-claro);
+    border-color: var(--dourado-claro);
+    transform: translateY(-2px);
+}
+
+.botao-secundario {
+    background: transparent;
+    color: var(--dourado);
+}
+
+.botao-secundario:hover {
+    background: var(--dourado);
+    color: #000;
+}
+
+.botao-largo {
+    width: 100%;
+}
+
+/* =========================
+   LISTA DE SERVIÇOS
+========================= */
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+li strong,
+.contato strong {
+    color: var(--dourado);
+}
+
+/* =========================
+   CONTATO E FORMULÁRIOS
+========================= */
+.contato,
+.formulario,
+.cadastro-painel {
+    background: #0b0b0b;
+    padding: 25px;
+    margin-top: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--dourado);
+    font-weight: bold;
+}
+
+.campo-duplo,
+.cadastro-grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0;
+    background: #202020;
+    color: var(--branco);
+    border: 1px solid #806b2b;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999999;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--dourado);
+    outline-offset: 2px;
+    border-color: var(--dourado);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--dourado-claro);
+    outline-offset: 3px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* =========================
+   CADASTRO NOVA ERA
+========================= */
+.hero-consulta {
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.cadastro-grade {
+    align-items: start;
+    gap: 35px;
+}
+
+.cadastro-introducao {
+    padding: 15px 0;
+}
+
+.cadastro-introducao h1 {
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.cadastro-introducao p {
+    color: #cccccc;
+    margin-bottom: 18px;
+}
+
+.cadastro-beneficio {
+    padding: 15px;
+    margin-top: 15px;
+    background: #151515;
+    border-left: 3px solid var(--dourado);
+    border-radius: 5px;
+}
+
+.cadastro-painel {
+    margin-top: 0;
+    padding: 30px;
+}
+
+.cadastro-painel-titulo {
+    margin-bottom: 20px;
+}
+
+.obrigatorio {
+    color: var(--dourado-claro);
+}
+
+.cadastro-observacao {
+    color: #aaaaaa;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.cadastro-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--dourado);
+    text-decoration: none;
+}
+
+.cadastro-voltar:hover {
+    color: var(--branco);
+}
+
+.mensagem-erro,
+.mensagem-sucesso {
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.mensagem-erro {
+    color: #ffb3b3;
+    background: #351414;
+    border: 1px solid #7d3030;
+}
+
+.mensagem-sucesso {
+    color: #b9f6ca;
+    background: #12351c;
+    border: 1px solid #28753e;
+}
+
+/* =========================
+   CONSULTA DE REGISTROS
+========================= */
+.filtros {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    align-items: end;
+}
+
+.tabela-responsiva {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th,
+td {
+    padding: 13px;
+    border-bottom: 1px solid var(--borda);
+    text-align: left;
+}
+
+th {
+    color: var(--dourado);
+    background: #080808;
+}
+
+td {
+    color: #eeeeee;
+}
+
+tr:hover td {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+footer,
+.rodape {
+    background: #000;
+    color: var(--dourado);
+    text-align: center;
+    padding: 25px 20px;
+    border-top: 1px solid var(--borda);
+}
+
+footer p,
+.rodape p {
+    margin-bottom: 5px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 900px) {
+    .cadastro-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-duplo,
+    .filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .cabecalho-conteudo {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 27px;
+    }
+
+    nav,
+    .navegacao {
+        gap: 14px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    section {
+        padding: 25px 15px;
+    }
+
+    .hero {
+        padding: 40px 18px;
+    }
+
+    .carros {
+        grid-template-columns: 1fr;
+    }
+
+    .carros img {
+        height: 210px;
+    }
+
+    .cadastro-painel {
+        padding: 20px;
+    }
+
+    .marca-texto span {
+        letter-spacing: 2px;
+    }
+}
+
+/* =================================
+   VEÍCULOS: 2 EM CIMA E 2 EMBAIXO
+================================= */
+
+.grade-carros {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+/* Cartões dos veículos */
+.cartao-carro {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    padding: 22px;
+    background: #111111;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.cartao-carro:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.12);
+}
+
+/* Imagens dos carros */
+.carro-imagem {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.carro-imagem img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.cartao-carro:hover .carro-imagem img {
+    transform: scale(1.04);
+}
+
+/* Etiqueta sobre a imagem */
+.carro-etiqueta {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    padding: 7px 12px;
+    background: #d4af37;
+    color: #000000;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* Informações dos veículos */
+.carro-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.carro-categoria {
+    color: #d4af37;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.carro-info h3 {
+    margin: 10px 0;
+    color: #d4af37;
+    font-size: 23px;
+}
+
+.carro-descricao {
+    color: #cccccc;
+    margin-bottom: 15px;
+}
+
+/* Dados técnicos */
+.carro-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    padding: 15px 0;
+    margin-top: 10px;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.carro-dados span {
+    color: #aaaaaa;
+}
+
+.carro-dados strong {
+    color: #ffffff;
+}
+
+/* Preço */
+.carro-rodape {
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.carro-rodape small {
+    color: #aaaaaa;
+}
+
+.preco {
+    color: #d4af37;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+/* Botão de interesse */
+.botao-largo {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* =================================
+   TABLETS
+================================= */
+@media (max-width: 800px) {
+    .grade-carros {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .carro-imagem img {
+        height: 210px;
+    }
+
+    .cartao-carro {
+        padding: 15px;
+    }
+
+    .carro-info h3 {
+        font-size: 19px;
+    }
+
+    .preco {
+        font-size: 19px;
+    }
+}
+
+/* =================================
+   CELULARES
+================================= */
+@media (max-width: 520px) {
+    .grade-carros {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .carro-imagem img {
+        height: 230px;
+    }
+}
