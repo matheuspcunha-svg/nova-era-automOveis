@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes | Nova Era Motors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Nova Era Motors</h1>
+    <p>Cadastro de Clientes</p>
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('consultar_clientes') }}">Consultar Clientes</a>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Cadastrar Cliente</h2>
+
+        {% if erro %}
+            <p class="mensagem-erro">{{ erro }}</p>
+        {% endif %}
+
+        {% if mensagem %}
+            <p class="mensagem-sucesso">{{ mensagem }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('cadastrar_cliente') }}" method="POST">
+            <label for="nome">Nome completo:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" maxlength="14" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required>
+
+            <button type="submit" class="botao">Cadastrar Cliente</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>Nova Era Motors — Excelência em cada detalhe.</p>
+</footer>
+
+</body>
+</html>
+```

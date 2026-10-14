@@ -1,0 +1,69 @@
+
+{% set titulo = 'Clientes cadastrados' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Clientes cadastrados</h1>
+            <p>Consulte os dados dos clientes e mantenha as informações de contato organizadas.</p>
+        </div>
+
+        <a class="botao" href="{{ url_for('cadastrar_cliente') }}">
+            + Cadastrar cliente
+        </a>
+    </div>
+
+    {% if erro %}
+        <p class="mensagem erro">{{ erro }}</p>
+
+    {% elif clientes %}
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Endereço</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for c in clientes %}
+                        <tr>
+                            <td>#{{ c.id_cliente }}</td>
+
+                            <td>
+                                <strong>{{ c.nome }}</strong>
+                            </td>
+
+                            <td>{{ c.cpf }}</td>
+
+                            <td>{{ c.telefone or '-' }}</td>
+
+                            <td>{{ c.email }}</td>
+
+                            <td>{{ c.endereco or '-' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="painel">
+            <h3>Nenhum cliente cadastrado</h3>
+            <p>Cadastre o primeiro cliente para começar a organizar sua base de clientes.</p>
+
+            <a class="botao" href="{{ url_for('cadastrar_cliente') }}">
+                Cadastrar primeiro cliente
+            </a>
+        </div>
+    {% endif %}
+</section>
+
+{% include '_base_bottom.html' %}

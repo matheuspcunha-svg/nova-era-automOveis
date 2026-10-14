@@ -1,0 +1,90 @@
+
+{% set titulo = 'Registrar venda' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Registrar venda</h1>
+            <p>Registre a venda de um veículo e vincule o cliente e o funcionário responsável.</p>
+        </div>
+
+        <a class="botao botao-secundario" href="{{ url_for('consultar_vendas') }}">
+            Consultar vendas
+        </a>
+    </div>
+
+    <div class="painel">
+        <div class="destaque">
+            <strong>Antes de registrar:</strong>
+            <p>Somente veículos com status Disponível devem aparecer na lista de veículos.</p>
+        </div>
+
+        <form method="post">
+            <div class="form-grid">
+                <div class="campo largo">
+                    <label for="id_cliente">Cliente *</label>
+                    <select id="id_cliente" name="id_cliente" required>
+                        <option value="">Selecione um cliente</option>
+
+                        {% for c in clientes %}
+                            <option value="{{ c.id_cliente }}">
+                                {{ c.nome }} (ID {{ c.id_cliente }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="campo largo">
+                    <label for="id_veiculo">Veículo *</label>
+                    <select id="id_veiculo" name="id_veiculo" required>
+                        <option value="">Selecione um veículo</option>
+
+                        {% for v in veiculos %}
+                            <option value="{{ v.id_veiculo }}">
+                                {{ v.marca }} {{ v.modelo }} — R$ {{ '%.2f'|format(v.preco) }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="campo largo">
+                    <label for="id_funcionario">Funcionário responsável *</label>
+                    <select id="id_funcionario" name="id_funcionario" required>
+                        <option value="">Selecione um funcionário</option>
+
+                        {% for f in funcionarios %}
+                            <option value="{{ f.id_funcionario }}">
+                                {{ f.nome }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            {% if not clientes or not veiculos or not funcionarios %}
+                <p class="mensagem erro">
+                    Para registrar a venda, cadastre ao menos um cliente,
+                    um veículo disponível e um funcionário.
+                </p>
+            {% endif %}
+
+            <div class="acoes">
+                <button
+                    type="submit"
+                    class="botao"
+                    {% if not clientes or not veiculos or not funcionarios %}disabled{% endif %}
+                >
+                    Registrar venda
+                </button>
+
+                <a class="botao botao-secundario" href="{{ url_for('inicio') }}">
+                    Voltar ao início
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% include '_base_bottom.html' %}

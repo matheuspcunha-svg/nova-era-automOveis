@@ -1,0 +1,149 @@
+
+{% set titulo = 'Cadastro de veículo' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Cadastrar veículo</h1>
+            <p>Adicione um veículo ao catálogo da concessionária preenchendo as informações abaixo.</p>
+        </div>
+
+        <a class="botao botao-secundario" href="{{ url_for('consultar_veiculos') }}">
+            Consultar veículos
+        </a>
+    </div>
+
+    <div class="painel">
+        <h3>Informações do veículo</h3>
+        <p>Os campos marcados com * são obrigatórios.</p>
+
+        <form method="post">
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="marca">Marca *</label>
+                    <input
+                        id="marca"
+                        name="marca"
+                        type="text"
+                        maxlength="50"
+                        placeholder="Ex.: Toyota"
+                        value="{{ (dados or {}).get('marca', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="modelo">Modelo *</label>
+                    <input
+                        id="modelo"
+                        name="modelo"
+                        type="text"
+                        maxlength="100"
+                        placeholder="Ex.: Corolla"
+                        value="{{ (dados or {}).get('modelo', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="ano">Ano *</label>
+                    <input
+                        id="ano"
+                        name="ano"
+                        type="number"
+                        min="1900"
+                        max="2100"
+                        placeholder="Ex.: 2025"
+                        value="{{ (dados or {}).get('ano', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="cor">Cor</label>
+                    <input
+                        id="cor"
+                        name="cor"
+                        type="text"
+                        maxlength="30"
+                        placeholder="Ex.: Preto"
+                        value="{{ (dados or {}).get('cor', '') }}"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="placa">Placa *</label>
+                    <input
+                        id="placa"
+                        name="placa"
+                        type="text"
+                        maxlength="10"
+                        placeholder="Ex.: ABC1D23"
+                        value="{{ (dados or {}).get('placa', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="quilometragem">Quilometragem (km)</label>
+                    <input
+                        id="quilometragem"
+                        name="quilometragem"
+                        type="number"
+                        min="0"
+                        placeholder="Ex.: 15000"
+                        value="{{ (dados or {}).get('quilometragem', '0') }}"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="preco">Preço (R$) *</label>
+                    <input
+                        id="preco"
+                        name="preco"
+                        type="number"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="Ex.: 85000.00"
+                        value="{{ (dados or {}).get('preco', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="status">Status *</label>
+                    <select id="status" name="status" required>
+                        <option value="Disponivel"
+                            {% if (dados or {}).get('status', 'Disponivel') == 'Disponivel' %}selected{% endif %}>
+                            Disponível
+                        </option>
+
+                        <option value="Reservado"
+                            {% if (dados or {}).get('status') == 'Reservado' %}selected{% endif %}>
+                            Reservado
+                        </option>
+
+                        <option value="Vendido"
+                            {% if (dados or {}).get('status') == 'Vendido' %}selected{% endif %}>
+                            Vendido
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="acoes">
+                <button type="submit" class="botao">
+                    Salvar veículo
+                </button>
+
+                <a class="botao botao-secundario" href="{{ url_for('consultar_veiculos') }}">
+                    Ver veículos cadastrados
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% include '_base_bottom.html' %}

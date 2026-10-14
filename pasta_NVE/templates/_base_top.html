@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080808">
+    <meta name="description" content="Nova Era Motors — veículos, clientes e vendas.">
+
+    <title>{{ titulo }} | Nova Era Motors</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+    <header>
+        <div class="container cabecalho-conteudo">
+
+            <a class="marca" href="{{ url_for('inicio') }}" aria-label="Nova Era Motors - Início">
+                <span class="marca-texto">
+                    <strong>NOVA ERA</strong>
+                    <small>MOTORS</small>
+                </span>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <a href="{{ url_for('inicio') }}">Início</a>
+
+                <a href="{{ url_for('cadastrar_cliente') }}">
+                    Cadastrar cliente
+                </a>
+
+                <a href="{{ url_for('consultar_clientes') }}">
+                    Clientes
+                </a>
+
+                <a href="{{ url_for('cadastrar_veiculo') }}">
+                    Cadastrar veículo
+                </a>
+
+                <a href="{{ url_for('consultar_veiculos') }}">
+                    Veículos
+                </a>
+
+                <a href="{{ url_for('cadastrar_funcionario') }}">
+                    Funcionários
+                </a>
+
+                <a href="{{ url_for('cadastrar_venda') }}">
+                    Vendas
+                </a>
+
+                <a href="{{ url_for('formulario') }}">
+                    Contato
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main class="container">
+
+        {% with mensagens = get_flashed_messages(with_categories=true) %}
+            {% for categoria, texto in mensagens %}
+                <div class="mensagem {{ categoria }}" role="status">
+                    {{ texto }}
+                </div>
+            {% endfor %}
+        {% endwith %}

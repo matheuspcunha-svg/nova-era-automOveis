@@ -1,0 +1,62 @@
+
+{% set titulo = 'Funcionários cadastrados' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Funcionários cadastrados</h1>
+            <p>Consulte os dados da equipe, os contatos e os cargos dos funcionários cadastrados.</p>
+        </div>
+
+        <a class="botao" href="{{ url_for('cadastrar_funcionario') }}">
+            + Cadastrar funcionário
+        </a>
+    </div>
+
+    {% if erro %}
+        <p class="mensagem erro">{{ erro }}</p>
+
+    {% elif funcionarios %}
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>E-mail</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for f in funcionarios %}
+                        <tr>
+                            <td>#{{ f.id_funcionario }}</td>
+                            <td><strong>{{ f.nome }}</strong></td>
+                            <td>{{ f.cpf }}</td>
+                            <td>{{ f.telefone or '-' }}</td>
+                            <td>{{ f.email }}</td>
+                            <td>{{ f.cargo }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="painel">
+            <h3>Nenhum funcionário cadastrado</h3>
+            <p>Cadastre o primeiro funcionário para começar a organizar a equipe.</p>
+
+            <a class="botao" href="{{ url_for('cadastrar_funcionario') }}">
+                Cadastrar primeiro funcionário
+            </a>
+        </div>
+    {% endif %}
+</section>
+
+{% include '_base_bottom.html' %}

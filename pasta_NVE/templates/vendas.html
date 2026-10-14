@@ -1,0 +1,70 @@
+
+{% set titulo = 'Vendas registradas' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Vendas registradas</h1>
+            <p>Consulte as vendas realizadas, os clientes, os veículos e os funcionários responsáveis.</p>
+        </div>
+
+        <a class="botao" href="{{ url_for('cadastrar_venda') }}">
+            + Registrar venda
+        </a>
+    </div>
+
+    {% if erro %}
+        <p class="mensagem erro">{{ erro }}</p>
+
+    {% elif vendas %}
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº venda</th>
+                        <th>Cliente</th>
+                        <th>Veículo</th>
+                        <th>Funcionário</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for v in vendas %}
+                        <tr>
+                            <td>#{{ v.id_venda }}</td>
+
+                            <td>{{ v.cliente }}</td>
+
+                            <td>
+                                <strong>{{ v.marca }} {{ v.modelo }}</strong>
+                            </td>
+
+                            <td>{{ v.funcionario }}</td>
+
+                            <td>
+                                <strong class="destaque">
+                                    R$ {{ '%.2f'|format(v.preco|float) }}
+                                </strong>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="painel">
+            <h3>Nenhuma venda registrada</h3>
+            <p>Quando uma venda for cadastrada, ela aparecerá nesta tabela.</p>
+
+            <a class="botao" href="{{ url_for('cadastrar_venda') }}">
+                Registrar primeira venda
+            </a>
+        </div>
+    {% endif %}
+</section>
+
+{% include '_base_bottom.html' %}

@@ -1,0 +1,114 @@
+{% set titulo = 'Fale conosco' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="contato-grade">
+
+        <div class="contato-texto">
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+
+            <h1>Fale conosco</h1>
+
+            <p>
+                Tem dúvidas sobre nossos veículos ou deseja mais informações?
+                Envie sua mensagem para nossa equipe.
+                Estamos prontos para ajudar você.
+            </p>
+
+            <div class="contato-informacoes">
+                <div class="contato-item">
+                    <span>ATENDIMENTO</span>
+                    <p>Entre em contato com nossa equipe pelo formulário.</p>
+                </div>
+
+                <div class="contato-item">
+                    <span>VEÍCULOS</span>
+                    <p>Consulte informações sobre modelos, preços e disponibilidade.</p>
+                </div>
+
+                <div class="contato-item">
+                    <span>RETORNO</span>
+                    <p>Preencha seus dados corretamente para facilitar nosso contato.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="painel">
+            <h2>Envie sua mensagem</h2>
+            <p>Os campos com * são obrigatórios.</p>
+
+            <form method="post">
+                <div class="form-grid">
+
+                    <div class="campo largo">
+                        <label for="nome">Nome completo *</label>
+                        <input
+                            id="nome"
+                            type="text"
+                            name="nome"
+                            maxlength="100"
+                            placeholder="Digite seu nome completo"
+                            value="{{ (dados or {}).get('nome', '') }}"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo largo">
+                        <label for="email">E-mail *</label>
+                        <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            maxlength="120"
+                            placeholder="seuemail@exemplo.com"
+                            value="{{ (dados or {}).get('email', '') }}"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="campo largo">
+                        <label for="telefone">Telefone</label>
+                        <input
+                            id="telefone"
+                            type="tel"
+                            name="telefone"
+                            maxlength="20"
+                            placeholder="Digite seu telefone"
+                            value="{{ (dados or {}).get('telefone', '') }}"
+                            autocomplete="tel"
+                        >
+                    </div>
+
+                    <div class="campo largo">
+                        <label for="mensagem">Sua mensagem *</label>
+                        <textarea
+                            id="mensagem"
+                            name="mensagem"
+                            rows="6"
+                            maxlength="2000"
+                            placeholder="Como podemos ajudar você?"
+                            required
+                        >{{ (dados or {}).get('mensagem', '') }}</textarea>
+                    </div>
+
+                </div>
+
+                <div class="acoes">
+                    <button type="submit">
+                        Enviar mensagem
+                    </button>
+
+                    <a class="botao botao-secundario" href="{{ url_for('inicio') }}">
+                        Voltar ao início
+                    </a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+{% include '_base_bottom.html' %}
+

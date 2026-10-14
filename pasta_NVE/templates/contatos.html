@@ -1,0 +1,63 @@
+{% set titulo = 'Mensagens recebidas' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Mensagens recebidas</h1>
+            <p>Consulte as mensagens enviadas pelos clientes através do formulário de contato.</p>
+        </div>
+
+        <a class="botao botao-secundario" href="{{ url_for('inicio') }}">
+            Voltar ao início
+        </a>
+    </div>
+
+    {% if erro %}
+        <p class="mensagem erro">{{ erro }}</p>
+
+    {% elif contatos %}
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Mensagem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for c in contatos %}
+                        <tr>
+                            <td>#{{ c.id_contato }}</td>
+
+                            <td>
+                                <strong>{{ c.nome }}</strong>
+                            </td>
+
+                            <td>{{ c.email }}</td>
+
+                            <td>{{ c.telefone or '-' }}</td>
+
+                            <td class="mensagem-contato">
+                                {{ c.mensagem }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="painel">
+            <h3>Nenhuma mensagem recebida</h3>
+            <p>Quando um cliente enviar uma mensagem pelo formulário, ela aparecerá nesta página.</p>
+        </div>
+    {% endif %}
+</section>
+
+{% include '_base_bottom.html' %}

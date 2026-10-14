@@ -1,0 +1,96 @@
+```html
+{% set titulo = 'Veículos cadastrados' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Veículos cadastrados</h1>
+            <p>Consulte o estoque, confira os preços e acompanhe a disponibilidade dos veículos.</p>
+        </div>
+
+        <div class="acoes">
+            <a class="botao" href="{{ url_for('cadastrar_veiculo') }}">
+                + Cadastrar veículo
+            </a>
+
+            <a class="botao botao-secundario" href="{{ url_for('cadastrar_venda') }}">
+                Registrar venda
+            </a>
+        </div>
+    </div>
+
+    {% if erro %}
+        <p class="mensagem erro">{{ erro }}</p>
+
+    {% elif veiculos %}
+        <div class="tabela-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Marca / modelo</th>
+                        <th>Ano</th>
+                        <th>Cor</th>
+                        <th>Placa</th>
+                        <th>Quilometragem</th>
+                        <th>Status</th>
+                        <th>Preço</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for v in veiculos %}
+                        <tr>
+                            <td>#{{ v.id_veiculo }}</td>
+
+                            <td>
+                                <strong>{{ v.marca }} {{ v.modelo }}</strong>
+                            </td>
+
+                            <td>{{ v.ano }}</td>
+
+                            <td>{{ v.cor or '-' }}</td>
+
+                            <td>{{ v.placa or '-' }}</td>
+
+                            <td>
+                                {{ '{:,.0f}'.format(v.quilometragem or 0).replace(',', '.') }} km
+                            </td>
+
+                            <td>
+                                {% if v.status == 'Disponivel' %}
+                                    <span class="status-disponivel">Disponível</span>
+                                {% elif v.status == 'Vendido' %}
+                                    <span class="status-vendido">Vendido</span>
+                                {% else %}
+                                    {{ v.status }}
+                                {% endif %}
+                            </td>
+
+                            <td>
+                                <strong class="destaque">
+                                    R$ {{ '%.2f'|format(v.preco|float) }}
+                                </strong>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <div class="painel">
+            <h3>Nenhum veículo cadastrado</h3>
+            <p>Cadastre o primeiro veículo para começar a organizar seu estoque.</p>
+
+            <a class="botao" href="{{ url_for('cadastrar_veiculo') }}">
+                Cadastrar primeiro veículo
+            </a>
+        </div>
+    {% endif %}
+</section>
+
+{% include '_base_bottom.html' %}
+```

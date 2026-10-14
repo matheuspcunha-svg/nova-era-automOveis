@@ -1,0 +1,102 @@
+
+{% set titulo = 'Cadastro de funcionário' %}
+{% include '_base_top.html' %}
+
+<section class="secao">
+    <div class="secao-cabecalho">
+        <div>
+            <span class="etiqueta">NOVA ERA MOTORS</span>
+            <h1>Cadastrar funcionário</h1>
+            <p>Registre os dados dos profissionais responsáveis pelo atendimento e pelas vendas.</p>
+        </div>
+
+        <a class="botao botao-secundario" href="{{ url_for('consultar_funcionarios') }}">
+            Consultar funcionários
+        </a>
+    </div>
+
+    <div class="painel">
+        <h3>Informações do funcionário</h3>
+        <p>Preencha os dados abaixo. Os campos marcados com * são obrigatórios.</p>
+
+        <form method="post">
+            <div class="form-grid">
+                <div class="campo">
+                    <label for="nome">Nome completo *</label>
+                    <input
+                        id="nome"
+                        name="nome"
+                        type="text"
+                        maxlength="100"
+                        placeholder="Digite o nome completo"
+                        value="{{ (dados or {}).get('nome', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="cpf">CPF *</label>
+                    <input
+                        id="cpf"
+                        name="cpf"
+                        type="text"
+                        maxlength="14"
+                        placeholder="000.000.000-00"
+                        value="{{ (dados or {}).get('cpf', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input
+                        id="telefone"
+                        name="telefone"
+                        type="tel"
+                        maxlength="20"
+                        placeholder="(11) 99999-9999"
+                        value="{{ (dados or {}).get('telefone', '') }}"
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail *</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        maxlength="120"
+                        placeholder="exemplo@email.com"
+                        value="{{ (dados or {}).get('email', '') }}"
+                        required
+                    >
+                </div>
+
+                <div class="campo largo">
+                    <label for="cargo">Cargo *</label>
+                    <input
+                        id="cargo"
+                        name="cargo"
+                        type="text"
+                        maxlength="50"
+                        placeholder="Ex.: Vendedor, gerente ou atendente"
+                        value="{{ (dados or {}).get('cargo', '') }}"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="acoes">
+                <button type="submit" class="botao">
+                    Salvar funcionário
+                </button>
+
+                <a class="botao botao-secundario" href="{{ url_for('consultar_funcionarios') }}">
+                    Ver funcionários cadastrados
+                </a>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% include '_base_bottom.html' %}

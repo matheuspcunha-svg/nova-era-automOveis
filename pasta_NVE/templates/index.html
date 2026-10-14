@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0b0b">
+
+    <meta name="description"
+          content="Conheça a Nova Era Automóveis. Veículos selecionados, atendimento personalizado e opções para encontrar seu próximo carro.">
+
+    <title>Nova Era Automóveis | Seu próximo carro começa aqui</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+
+            <a href="#inicio" class="marca" aria-label="Nova Era Automóveis - Início">
+                <span class="marca-simbolo">
+                    <img src="{{ url_for('static', filename='Imagens/novaEra.jpg') }}"
+                         alt="Logo Nova Era Automóveis">
+                </span>
+
+                <span class="marca-texto">
+                    <strong>NOVA ERA</strong>
+                    <small>AUTOMÓVEIS</small>
+                </span>
+            </a>
+
+            <nav class="navegacao" aria-label="Navegação principal">
+                <a href="#inicio">Início</a>
+                <a href="#veiculos">Veículos</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#contato">Contato</a>
+                <a href="{{ url_for('consultar_clientes') }}">Clientes</a>
+            </nav>
+
+            <a class="botao botao-pequeno"
+               href="{{ url_for('formulario') }}">
+                Fale conosco
+            </a>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="secao" id="gestao">
+            <div class="container">
+                <span class="etiqueta">ÁREA DE GESTÃO</span>
+                <h2>Gerencie os cadastros</h2>
+                <p>Acesse os formulários e consulte os dados registrados no banco de dados.</p>
+                <div class="atalhos">
+                    <a href="{{ url_for('cadastrar_cliente') }}"><strong>Clientes</strong>Cadastrar cliente</a>
+                    <a href="{{ url_for('consultar_clientes') }}"><strong>Consultar clientes</strong>Ver registros</a>
+                    <a href="{{ url_for('cadastrar_veiculo') }}"><strong>Veículos</strong>Cadastrar veículo</a>
+                    <a href="{{ url_for('consultar_veiculos') }}"><strong>Estoque</strong>Consultar veículos</a>
+                    <a href="{{ url_for('cadastrar_funcionario') }}"><strong>Funcionários</strong>Cadastrar funcionário</a>
+                    <a href="{{ url_for('consultar_funcionarios') }}"><strong>Equipe</strong>Consultar funcionários</a>
+                    <a href="{{ url_for('cadastrar_venda') }}"><strong>Vendas</strong>Registrar venda</a>
+                    <a href="{{ url_for('consultar_vendas') }}"><strong>Relatório de vendas</strong>Consultar vendas</a>
+                    <a href="{{ url_for('consultar_contatos') }}"><strong>Mensagens</strong>Ver contatos recebidos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTAQUE PRINCIPAL -->
+        <section class="hero" id="inicio">
+            <div class="container hero-conteudo">
+
+                <span class="etiqueta">
+                    EXCLUSIVIDADE • QUALIDADE • CONFIANÇA
+                </span>
+
+                <h1>
+                    Seu próximo carro.<br>
+                    <span>Uma nova experiência.</span>
+                </h1>
+
+                <p>
+                    Descubra veículos selecionados, atendimento personalizado
+                    e uma experiência de compra pensada para você.
+                </p>
+
+                <div class="hero-acoes">
+                    <a href="#veiculos" class="botao">
+                        Explorar veículos <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a href="#sobre" class="botao botao-secundario">
+                        Conheça a Nova Era
+                    </a>
+                </div>
+
+                <div class="hero-detalhes">
+                    <div>
+                        <strong>01</strong>
+                        <span>Atendimento personalizado</span>
+                    </div>
+
+                    <div>
+                        <strong>02</strong>
+                        <span>Veículos selecionados</span>
+                    </div>
+
+                    <div>
+                        <strong>03</strong>
+                        <span>Suporte na negociação</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CATÁLOGO DE VEÍCULOS -->
+        <section class="secao" id="veiculos">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <div>
+                        <span class="etiqueta">NOSSO CATÁLOGO</span>
+
+                        <h2>
+                            Encontre o seu próximo
+                            <span class="destaque">carro</span>
+                        </h2>
+
+                        <p>
+                            Confira alguns dos modelos em destaque na Nova Era.
+                        </p>
+                    </div>
+
+                    <a href="#contato" class="link-dourado">
+                        Consultar opções <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <div class="grade-carros">
+
+                    <!-- VOLVO EX30 -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">ELÉTRICO</span>
+
+                            <img
+                                src="{{ url_for('static', filename='Imagens/volvo-ex30-2023.jpg') }}"
+                                alt="Volvo EX30"
+                                loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SUV • VOLVO</span>
+
+                            <h3>Volvo EX30</h3>
+
+                            <p class="carro-descricao">
+                                Design contemporâneo, tecnologia e motorização elétrica.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>Até 272 cv*</strong>
+
+                                <span>Motorização</span>
+                                <strong>Elétrica</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 295.950,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Volvo%20EX30."
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Tenho interesse <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- TOYOTA COROLLA -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">CONFORTO</span>
+
+                            <img
+                                src="{{ url_for('static', filename='Imagens/toyota-corolla-hybrid-2024.jpg') }}"
+                                alt="Toyota Corolla"
+                                loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SEDÃ • TOYOTA</span>
+
+                            <h3>Toyota Corolla</h3>
+
+                            <p class="carro-descricao">
+                                Conforto, tecnologia e praticidade para o dia a dia.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>175 cv*</strong>
+
+                                <span>Motorização</span>
+                                <strong>2.0 Flex*</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 131.800,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Toyota%20Corolla."
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Tenho interesse <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- VOLKSWAGEN NIVUS GTS -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">ESPORTIVO</span>
+
+                            <img
+                                src="{{ url_for('static', filename='Imagens/volkswagen-nivus-gts.avif') }}"
+                                alt="Volkswagen Nivus GTS"
+                                loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SUV • VOLKSWAGEN</span>
+
+                            <h3>Volkswagen Nivus GTS</h3>
+
+                            <p class="carro-descricao">
+                                Estilo esportivo com tecnologia e personalidade.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>150 cv*</strong>
+
+                                <span>Motorização</span>
+                                <strong>1.4 TSI*</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 130.000,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Volkswagen%20Nivus%20GTS."
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Tenho interesse <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- CHEVROLET TRACKER -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">VERSATILIDADE</span>
+
+                            <img
+                                src="{{ url_for('static', filename='Imagens/Chevrolet-Tracker-2026-1-1.webp') }}"
+                                alt="Chevrolet Tracker"
+                                loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SUV • CHEVROLET</span>
+
+                            <h3>Chevrolet Tracker</h3>
+
+                            <p class="carro-descricao">
+                                Um SUV com proposta moderna para diferentes trajetos.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>Até 141 cv*</strong>
+
+                                <span>Motorização</span>
+                                <strong>Turbo*</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 115.000,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Chevrolet%20Tracker."
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Tenho interesse <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="nota-catalogo">
+                    *Confira versão, ano, especificações, disponibilidade e preço
+                    atualizado diretamente com a equipe.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- SOBRE A EMPRESA -->
+        <section class="secao secao-sobre" id="sobre">
+            <div class="container sobre-grade">
+
+                <div class="sobre-visual">
+                    <div class="sobre-monograma">NE</div>
+                    <span>NOVA ERA AUTOMÓVEIS</span>
+                    <p>Seu próximo carro começa aqui.</p>
+                </div>
+
+                <div class="sobre-texto">
+                    <span class="etiqueta">QUEM SOMOS</span>
+
+                    <h2>
+                        Mais do que carros.<br>
+                        <span class="destaque">Novas possibilidades.</span>
+                    </h2>
+
+                    <p>
+                        A Nova Era Automóveis tem como proposta tornar a busca
+                        pelo próximo veículo uma experiência mais simples,
+                        transparente e personalizada.
+                    </p>
+
+                    <p>
+                        Queremos entender o que você procura e apresentar opções
+                        que façam sentido para suas necessidades, seus planos
+                        e seu estilo de vida.
+                    </p>
+
+                    <a href="#contato" class="botao">
+                        Converse com nossa equipe <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section class="secao" id="servicos">
+            <div class="container">
+
+                <div class="secao-cabecalho">
+                    <div>
+                        <span class="etiqueta">COMO PODEMOS AJUDAR</span>
+
+                        <h2>
+                            Uma experiência
+                            <span class="destaque">completa</span>
+                        </h2>
+
+                        <p>
+                            Conte com nossa equipe para conhecer as opções disponíveis.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grade-servicos">
+
+                    <article class="servico">
+                        <span class="servico-numero">01</span>
+                        <h3>Compra de veículos</h3>
+                        <p>
+                            Encontre opções de acordo com suas preferências
+                            e necessidades.
+                        </p>
+                    </article>
+
+                    <article class="servico">
+                        <span class="servico-numero">02</span>
+                        <h3>Avaliação e negociação</h3>
+                        <p>
+                            Consulte a equipe sobre a possibilidade de negociar
+                            seu veículo.
+                        </p>
+                    </article>
+
+                    <article class="servico">
+                        <span class="servico-numero">03</span>
+                        <h3>Opções de financiamento</h3>
+                        <p>
+                            Converse com nossa equipe sobre as condições
+                            disponíveis para sua compra.
+                        </p>
+                    </article>
+
+                    <article class="servico">
+                        <span class="servico-numero">04</span>
+                        <h3>Atendimento personalizado</h3>
+                        <p>
+                            Tire suas dúvidas e receba orientação durante
+                            sua busca pelo próximo carro.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section class="secao secao-contato" id="contato">
+            <div class="container contato-grade">
+
+                <div class="contato-texto">
+                    <span class="etiqueta">VAMOS CONVERSAR</span>
+
+                    <h2>
+                        O próximo capítulo começa
+                        <span class="destaque">aqui.</span>
+                    </h2>
+
+                    <p>
+                        Gostou de algum veículo ou quer saber mais sobre
+                        nossas opções? Entre em contato com a Nova Era.
+                    </p>
+
+                    <a class="botao"
+                       href="https://wa.me/5511985399786"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Chamar no WhatsApp <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <p>
+                        <a href="{{ url_for('formulario') }}">
+                            Ou envie uma mensagem pelo nosso formulário.
+                        </a>
+                    </p>
+                </div>
+
+                <div class="contato-informacoes">
+                    <div class="contato-item">
+                        <span>TELEFONE</span>
+                        <a href="tel:+5511985399786">(11) 98539-9786</a>
+                    </div>
+
+                    <div class="contato-item">
+                        <span>E-MAIL</span>
+                        <a href="mailto:contato@novaeraautomoveis.com.br">
+                            contato@novaeraautomoveis.com.br
+                        </a>
+                    </div>
+
+                    <div class="contato-item">
+                        <span>LOCALIZAÇÃO</span>
+                        <p>São Paulo — SP</p>
+                    </div>
+
+                    <div class="contato-item">
+                        <span>HORÁRIO DE ATENDIMENTO</span>
+                        <p>Segunda a sexta, das 09h às 20h</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="container rodape-conteudo">
+
+            <a href="#inicio" class="marca marca-rodape">
+                <span class="marca-simbolo">
+                    <img src="{{ url_for('static', filename='Imagens/novaEra.jpg') }}"
+                         alt="Logo Nova Era Automóveis">
+                </span>
+
+                <span class="marca-texto">
+                    <strong>NOVA ERA</strong>
+                    <small>AUTOMÓVEIS</small>
+                </span>
+            </a>
+
+            <p>Seu próximo carro começa aqui.</p>
+
+            <a href="#inicio" class="voltar-topo">
+                Voltar ao topo ↑
+            </a>
+
+        </div>
+
+        <div class="container rodape-final">
+            <p>&copy; 2026 Nova Era Automóveis. Todos os direitos reservados.</p>
+            <p>Qualidade, confiança e novas possibilidades.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
