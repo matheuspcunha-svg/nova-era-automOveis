@@ -128,8 +128,11 @@ VALUES
 ('Volvo', 'EX30', 2024, 'Branco', 'PCX2Y24', 343, 'Disponivel', 239990.00),
 ('Toyota', 'Corolla', 2024, 'Preto', 'ABC1D23', 8, 'Disponivel', 159990.00),
 ('Volkswagen', 'Nivus GTS', 2026, 'Branco', 'XRT3F45', 14, 'Disponivel', 189990.00),
-('Chevrolet', 'Tracker', 2026, 'Vermelho', 'CDA8L13', 11, 'Disponivel', 174990.00);
-
+('Chevrolet', 'Tracker', 2026, 'Vermelho', 'CDA8L13', 11, 'Disponivel', 174990.00),
+('BMW', '320i M Sport', 2024, 'Azul', 'BMX2A24', 0, 'Disponivel', 329990.00),
+('Jeep', 'Compass Limited', 2024, 'Branco', 'JEP3B25', 0, 'Disponivel', 189990.00),
+('Porsche', 'Macan', 2023, 'Vermelho', 'POR4C26', 0, 'Disponivel', 459990.00),
+('Audi', 'A4 Sedan', 2024, 'Azul', 'AUD5D27', 0, 'Disponivel', 279990.00);
 
 -- Conferindo os veículos cadastrados
 
