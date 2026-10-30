@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#0b0b0b">
 
     <meta name="description"
-          content="Conheça a Nova Era Automóveis. Veículos selecionados, atendimento personalizado e opções para encontrar seu próximo carro.">
+          content="Conheça a Nova Era Motors. Veículos selecionados, atendimento personalizado e opções para encontrar seu próximo carro.">
 
-    <title>Nova Era Automóveis | Seu próximo carro começa aqui</title>
+    <title>Nova Era Motors | Seu próximo carro começa aqui</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -16,18 +16,20 @@
 
 <body>
 
+    <!-- CABEÇALHO -->
     <header class="cabecalho">
         <div class="container cabecalho-conteudo">
 
-            <a href="#inicio" class="marca" aria-label="Nova Era Automóveis - Início">
+            <a href="#inicio" class="marca" aria-label="Nova Era Motors - Início">
                 <span class="marca-simbolo">
-                    <img src="{{ url_for('static', filename='Imagens/novaEra.jpg') }}"
-                         alt="Logo Nova Era Automóveis">
+                    <img src="{{ url_for('static', filename='Imagens/NVE.png') }}"
+                         alt="Logotipo oficial da Nova Era Motors"
+                         class="img-responsive">
                 </span>
 
                 <span class="marca-texto">
                     <strong>NOVA ERA</strong>
-                    <small>AUTOMÓVEIS</small>
+                    <small>MOTORS</small>
                 </span>
             </a>
 
@@ -49,21 +51,63 @@
     </header>
 
     <main>
+
+        <!-- ÁREA DE GESTÃO -->
         <section class="secao" id="gestao">
             <div class="container">
                 <span class="etiqueta">ÁREA DE GESTÃO</span>
                 <h2>Gerencie os cadastros</h2>
-                <p>Acesse os formulários e consulte os dados registrados no banco de dados.</p>
+
+                <p>
+                    Acesse os formulários e consulte os dados registrados
+                    no banco de dados.
+                </p>
+
                 <div class="atalhos">
-                    <a href="{{ url_for('cadastrar_cliente') }}"><strong>Clientes</strong>Cadastrar cliente</a>
-                    <a href="{{ url_for('consultar_clientes') }}"><strong>Consultar clientes</strong>Ver registros</a>
-                    <a href="{{ url_for('cadastrar_veiculo') }}"><strong>Veículos</strong>Cadastrar veículo</a>
-                    <a href="{{ url_for('consultar_veiculos') }}"><strong>Estoque</strong>Consultar veículos</a>
-                    <a href="{{ url_for('cadastrar_funcionario') }}"><strong>Funcionários</strong>Cadastrar funcionário</a>
-                    <a href="{{ url_for('consultar_funcionarios') }}"><strong>Equipe</strong>Consultar funcionários</a>
-                    <a href="{{ url_for('cadastrar_venda') }}"><strong>Vendas</strong>Registrar venda</a>
-                    <a href="{{ url_for('consultar_vendas') }}"><strong>Relatório de vendas</strong>Consultar vendas</a>
-                    <a href="{{ url_for('consultar_contatos') }}"><strong>Mensagens</strong>Ver contatos recebidos</a>
+                    <a href="{{ url_for('cadastrar_cliente') }}">
+                        <strong>Clientes</strong>
+                        Cadastrar cliente
+                    </a>
+
+                    <a href="{{ url_for('consultar_clientes') }}">
+                        <strong>Consultar clientes</strong>
+                        Ver registros
+                    </a>
+
+                    <a href="{{ url_for('cadastrar_veiculo') }}">
+                        <strong>Veículos</strong>
+                        Cadastrar veículo
+                    </a>
+
+                    <a href="{{ url_for('consultar_veiculos') }}">
+                        <strong>Estoque</strong>
+                        Consultar veículos
+                    </a>
+
+                    <a href="{{ url_for('cadastrar_funcionario') }}">
+                        <strong>Funcionários</strong>
+                        Cadastrar funcionário
+                    </a>
+
+                    <a href="{{ url_for('consultar_funcionarios') }}">
+                        <strong>Equipe</strong>
+                        Consultar funcionários
+                    </a>
+
+                    <a href="{{ url_for('cadastrar_venda') }}">
+                        <strong>Vendas</strong>
+                        Registrar venda
+                    </a>
+
+                    <a href="{{ url_for('consultar_vendas') }}">
+                        <strong>Relatório de vendas</strong>
+                        Consultar vendas
+                    </a>
+
+                    <a href="{{ url_for('consultar_contatos') }}">
+                        <strong>Mensagens</strong>
+                        Ver contatos recebidos
+                    </a>
                 </div>
             </div>
         </section>
@@ -141,20 +185,19 @@
 
                 <div class="grade-carros">
 
-                    <!-- VOLVO EX30 -->
+                    <!-- 1. VOLVO EX30 -->
                     <article class="cartao-carro">
                         <div class="carro-imagem">
                             <span class="carro-etiqueta">ELÉTRICO</span>
 
-                            <img
-                                src="{{ url_for('static', filename='Imagens/volvo-ex30-2023.jpg') }}"
-                                alt="Volvo EX30"
-                                loading="lazy">
+                            <img src="{{ url_for('static', filename='Imagens/volvo.webp') }}"
+                                 alt="Volvo EX30"
+                                 class="img-responsive"
+                                 loading="lazy">
                         </div>
 
                         <div class="carro-info">
                             <span class="carro-categoria">SUV • VOLVO</span>
-
                             <h3>Volvo EX30</h3>
 
                             <p class="carro-descricao">
@@ -164,7 +207,6 @@
                             <div class="carro-dados">
                                 <span>Potência</span>
                                 <strong>Até 272 cv*</strong>
-
                                 <span>Motorização</span>
                                 <strong>Elétrica</strong>
                             </div>
@@ -177,28 +219,26 @@
                             </div>
 
                             <a class="botao botao-largo"
-                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Volvo%20EX30."
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                Tenho interesse <span aria-hidden="true">↗</span>
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Volvo%20EX30."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
                             </a>
                         </div>
                     </article>
 
-                    <!-- TOYOTA COROLLA -->
+                    <!-- 2. TOYOTA COROLLA -->
                     <article class="cartao-carro">
                         <div class="carro-imagem">
                             <span class="carro-etiqueta">CONFORTO</span>
 
-                            <img
-                                src="{{ url_for('static', filename='Imagens/toyota-corolla-hybrid-2024.jpg') }}"
-                                alt="Toyota Corolla"
-                                loading="lazy">
+                            <img src="{{ url_for('static', filename='Imagens/toyota.webp') }}"
+                                 alt="Toyota Corolla"
+                                 class="img-responsive"
+                                 loading="lazy">
                         </div>
 
                         <div class="carro-info">
                             <span class="carro-categoria">SEDÃ • TOYOTA</span>
-
                             <h3>Toyota Corolla</h3>
 
                             <p class="carro-descricao">
@@ -208,7 +248,6 @@
                             <div class="carro-dados">
                                 <span>Potência</span>
                                 <strong>175 cv*</strong>
-
                                 <span>Motorização</span>
                                 <strong>2.0 Flex*</strong>
                             </div>
@@ -221,28 +260,26 @@
                             </div>
 
                             <a class="botao botao-largo"
-                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Toyota%20Corolla."
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                Tenho interesse <span aria-hidden="true">↗</span>
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Toyota%20Corolla."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
                             </a>
                         </div>
                     </article>
 
-                    <!-- VOLKSWAGEN NIVUS GTS -->
+                    <!-- 3. VOLKSWAGEN NIVUS GTS -->
                     <article class="cartao-carro">
                         <div class="carro-imagem">
                             <span class="carro-etiqueta">ESPORTIVO</span>
 
-                            <img
-                                src="{{ url_for('static', filename='Imagens/volkswagen-nivus-gts.avif') }}"
-                                alt="Volkswagen Nivus GTS"
-                                loading="lazy">
+                            <img src="{{ url_for('static', filename='Imagens/nivusgts.webp') }}"
+                                 alt="Volkswagen Nivus GTS"
+                                 class="img-responsive"
+                                 loading="lazy">
                         </div>
 
                         <div class="carro-info">
                             <span class="carro-categoria">SUV • VOLKSWAGEN</span>
-
                             <h3>Volkswagen Nivus GTS</h3>
 
                             <p class="carro-descricao">
@@ -252,7 +289,6 @@
                             <div class="carro-dados">
                                 <span>Potência</span>
                                 <strong>150 cv*</strong>
-
                                 <span>Motorização</span>
                                 <strong>1.4 TSI*</strong>
                             </div>
@@ -265,28 +301,26 @@
                             </div>
 
                             <a class="botao botao-largo"
-                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Volkswagen%20Nivus%20GTS."
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                Tenho interesse <span aria-hidden="true">↗</span>
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Volkswagen%20Nivus%20GTS."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
                             </a>
                         </div>
                     </article>
 
-                    <!-- CHEVROLET TRACKER -->
+                    <!-- 4. CHEVROLET TRACKER -->
                     <article class="cartao-carro">
                         <div class="carro-imagem">
                             <span class="carro-etiqueta">VERSATILIDADE</span>
 
-                            <img
-                                src="{{ url_for('static', filename='Imagens/Chevrolet-Tracker-2026-1-1.webp') }}"
-                                alt="Chevrolet Tracker"
-                                loading="lazy">
+                            <img src="{{ url_for('static', filename='Imagens/chevrolet.webp') }}"
+                                 alt="Chevrolet Tracker"
+                                 class="img-responsive"
+                                 loading="lazy">
                         </div>
 
                         <div class="carro-info">
                             <span class="carro-categoria">SUV • CHEVROLET</span>
-
                             <h3>Chevrolet Tracker</h3>
 
                             <p class="carro-descricao">
@@ -296,7 +330,6 @@
                             <div class="carro-dados">
                                 <span>Potência</span>
                                 <strong>Até 141 cv*</strong>
-
                                 <span>Motorização</span>
                                 <strong>Turbo*</strong>
                             </div>
@@ -309,10 +342,173 @@
                             </div>
 
                             <a class="botao botao-largo"
-                               href="https://wa.me/5511985399786?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Chevrolet%20Tracker."
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                Tenho interesse <span aria-hidden="true">↗</span>
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Chevrolet%20Tracker."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 5. BMW 320i M SPORT -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">PREMIUM</span>
+
+                            <img src="{{ url_for('static', filename='Imagens/bmw.webp') }}"
+                                 alt="BMW 320i M Sport"
+                                 class="img-responsive"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SEDÃ • BMW</span>
+                            <h3>BMW 320i M Sport</h3>
+
+                            <p class="carro-descricao">
+                                Performance refinada, luxo e sofisticação.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>184 cv*</strong>
+                                <span>Motorização</span>
+                                <strong>2.0 Turbo</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 315.000,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20BMW%20320i."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 6. JEEP COMPASS LIMITED -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">OFF-ROAD</span>
+
+                            <img src="{{ url_for('static', filename='Imagens/jeep.webp') }}"
+                                 alt="Jeep Compass Limited"
+                                 class="img-responsive"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SUV • JEEP</span>
+                            <h3>Jeep Compass Limited</h3>
+
+                            <p class="carro-descricao">
+                                Tecnologia embarcada, espaço interno e robustez.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>185 cv*</strong>
+                                <span>Motorização</span>
+                                <strong>T270 Flex</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 189.900,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Jeep%20Compass."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 7. PORSCHE MACAN -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">LUXO</span>
+
+                            <img src="{{ url_for('static', filename='Imagens/porsche.webp') }}"
+                                 alt="Porsche Macan"
+                                 class="img-responsive"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SUV ESPORTIVO • PORSCHE</span>
+                            <h3>Porsche Macan</h3>
+
+                            <p class="carro-descricao">
+                                Um SUV dinâmico com estilo esportivo e exclusivo.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>265 cv*</strong>
+                                <span>Motorização</span>
+                                <strong>2.0 Turbo</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 475.000,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Porsche%20Macan."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 8. AUDI A4 SEDAN -->
+                    <article class="cartao-carro">
+                        <div class="carro-imagem">
+                            <span class="carro-etiqueta">ELEGÂNCIA</span>
+
+                            <img src="{{ url_for('static', filename='Imagens/audi.webp') }}"
+                                 alt="Audi A4 Sedan"
+                                 class="img-responsive"
+                                 loading="lazy">
+                        </div>
+
+                        <div class="carro-info">
+                            <span class="carro-categoria">SEDÃ • AUDI</span>
+                            <h3>Audi A4 Sedan</h3>
+
+                            <p class="carro-descricao">
+                                Design marcante, painel digital e condução precisa.
+                            </p>
+
+                            <div class="carro-dados">
+                                <span>Potência</span>
+                                <strong>204 cv*</strong>
+                                <span>Motorização</span>
+                                <strong>2.0 TFSI</strong>
+                            </div>
+
+                            <div class="carro-rodape">
+                                <div>
+                                    <small>Preço anunciado</small>
+                                    <p class="preco">R$ 242.000,00</p>
+                                </div>
+                            </div>
+
+                            <a class="botao botao-largo"
+                               href="https://wa.me/5511985399786?text=Ola%21%20Tenho%20interesse%20no%20Audi%20A4."
+                               target="_blank" rel="noopener noreferrer">
+                                Tenho interesse ↗
                             </a>
                         </div>
                     </article>
@@ -332,7 +528,10 @@
             <div class="container sobre-grade">
 
                 <div class="sobre-visual">
-                    <div class="sobre-monograma">NE</div>
+                    <img src="{{ url_for('static', filename='Imagens/NVE.png') }}"
+                         alt="Logotipo principal Nova Era Motors"
+                         class="logo-destaque img-responsive">
+
                     <span>NOVA ERA AUTOMÓVEIS</span>
                     <p>Seu próximo carro começa aqui.</p>
                 </div>
@@ -358,7 +557,7 @@
                     </p>
 
                     <a href="#contato" class="botao">
-                        Converse com nossa equipe <span aria-hidden="true">↗</span>
+                        Converse com nossa equipe ↗
                     </a>
                 </div>
 
@@ -445,9 +644,8 @@
 
                     <a class="botao"
                        href="https://wa.me/5511985399786"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        Chamar no WhatsApp <span aria-hidden="true">↗</span>
+                       target="_blank" rel="noopener noreferrer">
+                        Chamar no WhatsApp ↗
                     </a>
 
                     <p>
@@ -458,6 +656,7 @@
                 </div>
 
                 <div class="contato-informacoes">
+
                     <div class="contato-item">
                         <span>TELEFONE</span>
                         <a href="tel:+5511985399786">(11) 98539-9786</a>
@@ -479,8 +678,8 @@
                         <span>HORÁRIO DE ATENDIMENTO</span>
                         <p>Segunda a sexta, das 09h às 20h</p>
                     </div>
-                </div>
 
+                </div>
             </div>
         </section>
 
@@ -492,13 +691,14 @@
 
             <a href="#inicio" class="marca marca-rodape">
                 <span class="marca-simbolo">
-                    <img src="{{ url_for('static', filename='Imagens/novaEra.jpg') }}"
-                         alt="Logo Nova Era Automóveis">
+                    <img src="{{ url_for('static', filename='Imagens/NVE.png') }}"
+                         alt="Logotipo oficial da Nova Era Motors"
+                         class="img-responsive">
                 </span>
 
                 <span class="marca-texto">
                     <strong>NOVA ERA</strong>
-                    <small>AUTOMÓVEIS</small>
+                    <small>MOTORS</small>
                 </span>
             </a>
 
@@ -511,10 +711,14 @@
         </div>
 
         <div class="container rodape-final">
-            <p>&copy; 2026 Nova Era Automóveis. Todos os direitos reservados.</p>
+            <p>
+                &copy; 2026 Nova Era Automóveis. Todos os direitos reservados.
+            </p>
+
             <p>Qualidade, confiança e novas possibilidades.</p>
         </div>
     </footer>
 
 </body>
 </html>
+```
